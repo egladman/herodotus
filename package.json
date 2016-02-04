@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "description": "An IRC node bot",
   "dependencies": {
-    "irc": "0.3.6",
+    "irc": "0.3.6"
   }
 }
