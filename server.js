@@ -47,7 +47,7 @@ client.addListener('message', function (from, to, text) {
 
   array.push(item);
 
-  fs.writeFile(file, '{' + array + '}', function() {
+  fs.writeFile(file, '{' + array + '}\n', function() {
     // console.log("updated");
   });
 });
