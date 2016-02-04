@@ -1,5 +1,5 @@
 # helen_keller
-An IRC node bot that logs a channel's activity to a JSON file
+An IRC bot written in node.JS that logs a channel's activity and saves it to a JSON file
 
 
 ```bash
