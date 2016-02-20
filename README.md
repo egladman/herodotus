@@ -58,4 +58,4 @@ example `log.json`
 
 Tested on node `v4.2.6`
 
-Contributions and/or feature requests are welcome.
+Contributions and/or feature requests are welcomed.
