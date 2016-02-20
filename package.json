@@ -1,7 +1,7 @@
 {
-  "name": "helen_keller",
-  "version": "0.0.1",
-  "description": "An IRC node bot",
+  "name": "irc-logger",
+  "version": "0.1.1",
+  "description": "An IRC node bot that logs a channel's activity",
   "dependencies": {
     "irc": "0.3.6"
   }
