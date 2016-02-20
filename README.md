@@ -31,3 +31,7 @@ example `log.json`
 	}
 }
 ```
+
+--
+
+Contributions and feature requests are welcome
