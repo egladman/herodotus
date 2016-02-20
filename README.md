@@ -54,7 +54,7 @@ example `log.json`
 }
 ```
 
---
+---
 
 Tested on node `v4.2.6`
 
