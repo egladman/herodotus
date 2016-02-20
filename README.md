@@ -1,4 +1,4 @@
-# irc-logger
+# herodotus
 An IRC bot written in node.JS that logs a channel's activity and saves it to a JSON file
 
 
