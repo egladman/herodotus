@@ -1,6 +1,6 @@
 var server = 'irc.freenode.net';
 var port = 6667
-var channel = '#osuosc';
+var channel = '#helen_keller-testing';
 var nick = 'helen_keller';
 
 var file = 'log.json';
@@ -18,19 +18,6 @@ var client = new irc.Client(server, nick, {
   encoding: 'UTF-8'
 });
 
-function getDateTime() {
-  var date = new Date();
-  var sec  = date.getSeconds();
-  var min  = date.getMinutes();
-  var hour = date.getHours();
-
-  sec = (sec < 10 ? "0" : "") + sec;
-  min = (min < 10 ? "0" : "") + min;
-  hour = (hour < 10 ? "0" : "") + hour;
-
-  return hour + ':' + min + ':' + sec;
-}
-
 client.connect(5, function(input) {
   // console.log("Connected");
   client.join(channel, function(input) {
@@ -41,7 +28,7 @@ client.connect(5, function(input) {
 var array = [];
 
 client.addListener('message', function (from, to, text) {
-  var time = getDateTime();
+  var time = Math.floor(new Date() / 1000);
   var obj = { nick: from, message: text };
   var item = '\"' + time + '\"\:' + JSON.stringify(obj);
 
