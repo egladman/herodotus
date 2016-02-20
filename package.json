@@ -1,5 +1,6 @@
 {
   "name": "herodotus",
+  "private": true,
   "version": "0.1.1",
   "description": "An IRC node bot that logs a channel's activity",
   "main": "server.js",
