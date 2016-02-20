@@ -1,7 +1,7 @@
 var server = 'irc.freenode.net';
 var port = 6667
-var channel = '#helen_keller-testing';
-var nick = 'helen_keller';
+var channel = '#osuosc';
+var nick = 'herodotus';
 
 var file = 'log.json';
 
