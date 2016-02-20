@@ -4,7 +4,7 @@ An IRC bot written in node.JS that logs a channel's activity and saves it to a J
 
 ### Getting started
 
-##### Download
+##### Clone
 ```bash
 git clone https://github.com/egladman/herodotus.git && cd herodotus
 ```
