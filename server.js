@@ -1,13 +1,16 @@
-var server = 'irc.freenode.net';
-var port = 6667
-var channel = '#osuosc';
-var nick = 'herodotus';
-
-var file = 'log.json';
-
 var http = require('http');
 var irc = require('irc');
 var fs = require('fs');
+var argv = require('yargs').argv;
+
+var port, server, channel, nick;
+
+(argv.port) ? port = argv.port : port = 6667;
+(argv.server) ? server = argv.server : server = 'irc.freenode.net';
+(argv.channel) ? channel = argv.channel : channel = '#herodotus-testing';
+(argv.nick) ? nick = argv.nick : nick = 'herodotus-bot';
+
+var file = 'log.json';
 
 var client = new irc.Client(server, nick, {
   autoRejoin: true,
