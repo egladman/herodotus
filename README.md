@@ -2,6 +2,7 @@
 An IRC bot written in node.JS that logs a channel's activity and saves it to a JSON file
 
 
+
 ### Getting started
 
 ##### Clone
@@ -13,20 +14,45 @@ git clone https://github.com/egladman/herodotus.git && cd herodotus
 npm install
 ```
 
-##### Configure
-```js
-// server.js
 
-var server = 'irc.freenode.net';
-var port = 6667
-var channel = '#osuosc';
-var nick = 'herodotus';
-```
 
 ##### Start
+
+There are **4 optional** parameters
+
+###### Example One
+
+```bash
+node server.js --nick='herodotus__bot' --channel='#herodotus-demo'
+```
+
+--
+
+###### Example Two
+
+```bash
+node server.js --nick='___logbot___' --channel='#foo' --server='bar' --port=1234
+```
+
+--
+
+###### Example Three
+
 ```bash
 node server.js
 ```
+
+---
+
+##### Default Configuration
+
+server: `irc.freenode.net`
+
+port: `6667`
+
+channel: `#herodotus-demo`
+
+nick: `herodotus-bot`
 
 
 ---
