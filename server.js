@@ -7,7 +7,7 @@ var port, server, channel, nick;
 
 (argv.port) ? port = argv.port : port = 6667;
 (argv.server) ? server = argv.server : server = 'irc.freenode.net';
-(argv.channel) ? channel = argv.channel : channel = '#herodotus-testing';
+(argv.channel) ? channel = argv.channel : channel = '#herodotus-demo';
 (argv.nick) ? nick = argv.nick : nick = 'herodotus-bot';
 
 var file = 'log.json';
