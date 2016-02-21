@@ -22,7 +22,8 @@ var client = new irc.Client(server, nick, {
 });
 
 client.connect(5, function(input) {
-  // console.log("Connected");
+  console.log("Established connection with server");
+
   client.join(channel, function(input) {
     console.log("Joined " + channel);
   });
@@ -37,7 +38,10 @@ client.addListener('message', function (from, to, text) {
 
   array.push(item);
 
-  fs.writeFile(file, '{' + array + '}\n', function() {
-    // console.log("updated");
+  fs.writeFile(file, '{' + array + '}\n', function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log(file + " has been updated");
   });
 });
