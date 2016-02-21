@@ -23,14 +23,23 @@ There are **4 optional** parameters
 ###### Example One
 
 ```bash
-node server.js --nick='foo' --channel='#linux' --server='baz' --port=7000
+node server.js --nick='herodotus__bot' --channel='#herodotus-demo'
 ```
 
+--
 
 ###### Example Two
 
 ```bash
-node server.js --channel='#linux' --nick='qux'
+node server.js --nick='___logbot___' --channel='#foo' --server='bar' --port=1234
+```
+
+--
+
+###### Example Three
+
+```bash
+node server.js
 ```
 
 
