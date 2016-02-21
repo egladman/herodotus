@@ -42,17 +42,17 @@ node server.js --nick='___logbot___' --channel='#foo' --server='bar' --port=1234
 node server.js
 ```
 
-
+---
 
 ##### Default Configuration
 
-server = `irc.freenode.net`
+server: `irc.freenode.net`
 
-port = `6667`
+port: `6667`
 
-channel = `#osuosc`
+channel: `#herodotus-demo`
 
-nick = `herodotus-bot`
+nick: `herodotus-bot`
 
 
 ---
