@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/egladman/herodotus#readme",
   "dependencies": {
-    "irc": "0.3.6"
+    "irc": "0.3.6",
+    "yargs": "^4.1.0"
   }
 }
