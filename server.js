@@ -32,13 +32,14 @@ client.connect(5, function(input) {
 var array = [];
 
 client.addListener('message', function (from, to, text) {
-  var time = Math.floor(new Date() / 1000);
-  var obj = { nick: from, message: text };
-  var item = '\"' + time + '\"\:' + JSON.stringify(obj);
+  var timeStamp = Math.floor(new Date() / 1000);
+  var obj = { nick: from, message: text, time: timeStamp };
 
-  array.push(item);
+  array.push(obj);
 
-  fs.writeFile(file, '{' + array + '}\n', function(err) {
+  var content = '{\"events\":' + JSON.stringify(array) + '}\n'
+
+  fs.writeFile(file, content, function(err) {
     if(err) {
       return console.log(err);
     }
