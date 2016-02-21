@@ -61,22 +61,25 @@ example `log.json`
 
 ```json
 {
-	"1455961058": {
-		"nick": "foo",
-		"message": "Vivamus elementum semper nisi"
-	},
-	"1455961061": {
-		"nick": "bar",
-		"message": "Aenean vulputate eleifend tellus"
-	},
-	"1455961064": {
-		"nick": "baz",
-		"message": "qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum"
-	},
-	"1455961105": {
-		"nick": "qux",
-		"message": "foo: Etiam sit amet orci eget eros faucibus tincidunt"
-	}
+	"events": [
+		{
+			"nick": "foo",
+			"message": "Vivamus elementum semper nisi",
+			"time": 1456070643
+		}, {
+			"nick": "bar",
+			"message": "Aenean vulputate eleifend tellus",
+			"time": 1456070648
+		}, {
+			"nick": "baz",
+			"message": "qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum",
+			"time": 1456070651
+		}, {
+			"nick": "qux",
+			"message": "foo: Etiam sit amet orci eget eros faucibus tincidunt",
+			"time": 1456070653
+		}
+	]
 }
 ```
 
