@@ -20,14 +20,14 @@ npm install
 
 There are **4 optional** parameters
 
-Example One
+###### Example One
 
 ```bash
 node server.js --nick='foo' --channel='#linux' --server='baz' --port=7000
 ```
 
 
-Example Two
+###### Example Two
 
 ```bash
 node server.js --channel='#linux' --nick='qux'
@@ -37,10 +37,13 @@ node server.js --channel='#linux' --nick='qux'
 
 ##### Default Configuration
 
-server = 'irc.freenode.net'
-port = 6667
-channel = '#osuosc'
-nick = 'herodotus-bot'
+server = `irc.freenode.net`
+
+port = `6667`
+
+channel = `#osuosc`
+
+nick = `herodotus-bot`
 
 
 ---
