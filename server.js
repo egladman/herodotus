@@ -1,6 +1,7 @@
 var http = require('http');
 var irc = require('irc');
 var fs = require('fs');
+var mkdirp = require('mkdirp');
 var argv = require('yargs').argv;
 
 var port, server, channel, nick;
@@ -9,8 +10,6 @@ var port, server, channel, nick;
 (argv.server) ? server = argv.server : server = 'irc.freenode.net';
 (argv.channel) ? channel = argv.channel : channel = '#herodotus-demo';
 (argv.nick) ? nick = argv.nick : nick = 'herodotus-bot';
-
-var file = 'log.json';
 
 var client = new irc.Client(server, nick, {
   autoRejoin: true,
@@ -29,20 +28,31 @@ client.connect(5, function(input) {
   });
 });
 
+mkdirp('logs', function (err) {
+  if(err) {
+    return console.log(err);
+  }
+});
+
 var array = [];
 
 client.addListener('message', function (from, to, text) {
-  var timeStamp = Math.floor(new Date() / 1000);
-  var obj = { nick: from, message: text, time: timeStamp };
+  var date = new Date();
+
+  var epochTimeStamp = Math.floor(date / 1000);
+  var isoTimeStamp = date.toISOString().slice(0,10);
+
+  var path = "logs/" + isoTimeStamp + ".json"
+  var obj = { nick: from, message: text, time: epochTimeStamp };
 
   array.push(obj);
 
-  var content = '{\"events\":' + JSON.stringify(array) + '}\n'
+  var contents = '{\"events\":' + JSON.stringify(array) + '}\n'
 
-  fs.writeFile(file, content, function(err) {
+  fs.writeFile(path, contents, function(err) {
     if(err) {
       return console.log(err);
     }
-    console.log(file + " has been updated");
+    console.log(path + " has been updated");
   });
 });
