@@ -1,7 +1,7 @@
 # herodotus
 An IRC bot written in node.JS that logs a channel's activity and saves it to a JSON file
 
-
+**the current day's log is overwritten when reinitialized**
 
 ### Getting started
 
@@ -57,7 +57,8 @@ nick: `herodotus-bot`
 
 ---
 
-example `log.json`
+
+example `logs/YYYY-MM-DD.json`
 
 ```json
 {
@@ -87,4 +88,4 @@ example `log.json`
 
 Tested on node `v4.2.6`
 
-Contributions and/or feature requests are welcomed.
+Contributions and/or feature requests are welcomed. Feel free to report issues.
