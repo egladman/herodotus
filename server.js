@@ -22,7 +22,7 @@ var client = new irc.Client(server, nick, {
 });
 
 client.connect(5, function(input) {
-  console.log("Established connection with server");
+  console.log("Established connection with " + server);
 
   client.join(channel, function(input) {
     console.log("Joined " + channel);
