@@ -34,7 +34,8 @@ mkdirp('logs', function (err) {
   }
 });
 
-var array = [];
+var log = {};
+log.events = [];
 
 client.addListener('message', function (from, to, text) {
   var date = new Date();
@@ -45,9 +46,9 @@ client.addListener('message', function (from, to, text) {
   var path = "logs/" + isoTimeStamp + ".json"
   var obj = { nick: from, message: text, time: epochTimeStamp };
 
-  array.push(obj);
+  log.events.push(obj);
 
-  var contents = '{\"events\":' + JSON.stringify(array) + '}\n'
+  var contents = JSON.stringify(log) + '\n'
 
   fs.writeFile(path, contents, function(err) {
     if(err) {
