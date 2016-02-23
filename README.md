@@ -60,6 +60,8 @@ example `logs/YYYY-MM-DD.json`
 
 ```json
 {
+	"server":"irc.freenode.net",
+	"channel":"#herodotus-demo",
 	"events": [
 		{
 			"nick": "foo",

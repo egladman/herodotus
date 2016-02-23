@@ -35,6 +35,8 @@ mkdirp('logs', function (err) {
 });
 
 var log = {};
+log.server = server;
+log.channel = channel;
 log.events = [];
 
 client.addListener('message', function (from, to, text) {
