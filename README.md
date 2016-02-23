@@ -1,8 +1,6 @@
 # herodotus
 An IRC bot written in node.JS that logs a channel's activity and saves it to JSON
 
-**DISCLAIMER:** the current day's log is overwritten when reinitialized
-
 ### Getting started
 
 ##### Clone
@@ -23,7 +21,7 @@ There are **4 optional** parameters
 ###### Example One
 
 ```bash
-node server.js --nick='herodotus__bot' --channel='#herodotus-demo'
+node server.js --channel='#herodotus-demo'
 ```
 
 --
@@ -31,7 +29,7 @@ node server.js --nick='herodotus__bot' --channel='#herodotus-demo'
 ###### Example Two
 
 ```bash
-node server.js --nick='___logbot___' --channel='#foo' --server='bar' --port=1234
+node server.js --nick='qux' --channel='#foo' --server='bar' --port=1234
 ```
 
 --
