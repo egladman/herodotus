@@ -45,12 +45,12 @@ client.addListener('message', function (from, to, text) {
   var epochTimeStamp = Math.floor(date / 1000);
   var isoTimeStamp = date.toISOString().slice(0,10);
 
-  var path = "logs/" + isoTimeStamp + ".json"
+  var path = "logs/" + isoTimeStamp + ".json";
   var obj = { nick: from, message: text, time: epochTimeStamp };
 
   log.events.push(obj);
 
-  var contents = JSON.stringify(log) + '\n'
+  var contents = JSON.stringify(log) + '\n';
 
   fs.writeFile(path, contents, function(err) {
     if(err) {
