@@ -61,28 +61,31 @@ format: `json`
 example `logs/YYYY-MM-DD.json`
 
 ```json
-{
-	"server":"irc.freenode.net",
-	"channel":"#herodotus-demo",
-	"events": [
-		{
-			"nick": "foo",
-			"message": "Vivamus elementum semper nisi",
-			"time": 1456070643
-		}, {
-			"nick": "bar",
-			"message": "Aenean vulputate eleifend tellus",
-			"time": 1456070648
-		}, {
-			"nick": "baz",
-			"message": "qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum",
-			"time": 1456070651
-		}, {
-			"nick": "qux",
-			"message": "foo: Etiam sit amet orci eget eros faucibus tincidunt",
-			"time": 1456070653
-		}
-	]
+{  
+  "server":"irc.freenode.net",
+  "channel":"#herodotus-demo",
+  "events":[  
+    {  
+      "nick":"foo",
+      "message":"Vivamus elementum semper nisi",
+      "time":1456070643
+    },
+    {  
+      "nick":"bar",
+      "message":"Aenean vulputate eleifend tellus",
+      "time":1456070648
+    },
+    {  
+      "nick":"baz",
+      "message":"qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum",
+      "time":1456070651
+    },
+    {  
+      "nick":"qux",
+      "message":"foo: Etiam sit amet orci eget eros faucibus tincidunt",
+      "time":1456070653
+    }
+  ]
 }
 ```
 
