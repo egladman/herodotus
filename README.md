@@ -1,5 +1,5 @@
 # herodotus
-An IRC bot written in node.JS that logs a channel's activity and saves it to JSON
+An IRC bot written in node.JS that logs a channel's activity and saves it to [JSON](http://json.org/) or [JSON Lines](http://jsonlines.org/)
 
 ### Getting started
 
@@ -16,12 +16,12 @@ npm install
 
 ##### Start
 
-There are **4 optional** parameters
+There are **5 optional** parameters
 
 ###### Example One
 
 ```bash
-node server.js --channel='#herodotus-demo'
+node server.js --channel='#herodotus-demo' --format='jsonl'
 ```
 
 --
@@ -51,6 +51,8 @@ port: `6667`
 channel: `#herodotus-demo`
 
 nick: `herodotus-bot`
+
+format: `json`
 
 
 ---

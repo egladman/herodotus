@@ -4,12 +4,23 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var argv = require('yargs').argv;
 
-var port, server, channel, nick;
+var port, server, channel, nick, format;
+
+var formats = ['json', 'jsonl'];
 
 (argv.port) ? port = argv.port : port = 6667;
-(argv.server) ? server = argv.server : server = 'irc.freenode.net';
-(argv.channel) ? channel = argv.channel : channel = '#herodotus-demo';
-(argv.nick) ? nick = argv.nick : nick = 'herodotus-bot';
+(argv.server) ? server = argv.server.toLowerCase() : server = 'irc.freenode.net';
+(argv.channel) ? channel = argv.channel.toLowerCase() : channel = '#herodotus-demo';
+(argv.nick) ? nick = argv.nick.toLowerCase() : nick = 'herodotus-bot';
+
+if (argv.format) {
+  if (formats.indexOf(argv.format) === -1) {
+    return console.error('invalid format');
+  }
+  format = argv.format.toLowerCase();
+} else {
+  format = 'json';
+}
 
 var client = new irc.Client(server, nick, {
   autoRejoin: true,
@@ -43,19 +54,32 @@ client.addListener('message', function (from, to, text) {
   var date = new Date();
 
   var epochTimeStamp = Math.floor(date / 1000);
-  var isoTimeStamp = date.toISOString().slice(0,10);
+  var isoTimeStamp = date.toISOString();
 
-  var path = "logs/" + isoTimeStamp + ".json"
+  var path = "logs/" + isoTimeStamp.slice(0,10) + "." + format
   var obj = { nick: from, message: text, time: epochTimeStamp };
 
-  log.events.push(obj);
+  if (format === 'json') {
+    log.events.push(obj);
+    var contents = JSON.stringify(log) + '\n'
 
-  var contents = JSON.stringify(log) + '\n'
+    fs.writeFile(path, contents, function(err) {
+      if(err) {
+        return console.log(err);
+      }
+      console.log('[' + isoTimeStamp.slice(11,19) + '] ' + path + " has been updated");
+    });
 
-  fs.writeFile(path, contents, function(err) {
-    if(err) {
-      return console.log(err);
-    }
-    console.log(path + " has been updated");
-  });
+
+  } else if (format === 'jsonl') {
+    var contents = JSON.stringify(obj) + '\n'
+
+    fs.appendFile(path, contents, function(err) {
+      if(err) {
+        return console.log(err);
+      }
+      console.log('[' + isoTimeStamp.slice(11,19) + '] ' + path + " has been updated");
+    });
+
+  }
 });
