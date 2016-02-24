@@ -84,13 +84,3 @@ client.addListener('message', function (from, to, text) {
 
   }
 });
-
-  var contents = JSON.stringify(log) + '\n';
-
-  fs.writeFile(path, contents, function(err) {
-    if(err) {
-      return console.log(err);
-    }
-    console.log(path + " has been updated");
-  });
-});
