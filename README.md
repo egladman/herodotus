@@ -88,6 +88,18 @@ example `logs/YYYY-MM-DD.json`
 
 ---
 
+
+example `logs/YYYY-MM-DD.jsonl`
+
+```json
+{"nick":"foo","message":"Vivamus elementum semper nisi","time":1456070643}
+{"nick":"bar","message":"Aenean vulputate eleifend tellus","time":1456070648}
+{"nick":"baz","message":"qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum","time":1456070651}
+{"nick":"qux","message":"foo: Etiam sit amet orci eget eros faucibus tincidunt","time":1456070653}
+```
+
+---
+
 Tested on node `v4.2.6`
 
 Contributions and/or feature requests are welcomed. Feel free to report issues.
