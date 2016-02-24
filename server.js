@@ -56,18 +56,14 @@ client.addListener('message', function (from, to, text) {
   var epochTimeStamp = Math.floor(date / 1000);
   var isoTimeStamp = date.toISOString();
 
-<<<<<<< HEAD
   var path = "logs/" + isoTimeStamp.slice(0,10) + "." + format
-=======
-  var path = "logs/" + isoTimeStamp + ".json";
->>>>>>> ea563285ca4da3755381b507f7a62c691cc39d84
+
   var obj = { nick: from, message: text, time: epochTimeStamp };
 
   if (format === 'json') {
     log.events.push(obj);
     var contents = JSON.stringify(log) + '\n'
 
-<<<<<<< HEAD
     fs.writeFile(path, contents, function(err) {
       if(err) {
         return console.log(err);
@@ -88,7 +84,7 @@ client.addListener('message', function (from, to, text) {
 
   }
 });
-=======
+
   var contents = JSON.stringify(log) + '\n';
 
   fs.writeFile(path, contents, function(err) {
@@ -98,4 +94,3 @@ client.addListener('message', function (from, to, text) {
     console.log(path + " has been updated");
   });
 });
->>>>>>> ea563285ca4da3755381b507f7a62c691cc39d84
