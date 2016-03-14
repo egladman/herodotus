@@ -6,7 +6,7 @@ var argv = require('yargs').argv;
 
 var port, server, channel, nick, format;
 
-var formats = ['json', 'jsonl'];
+var formats = ['json', 'jsonl', 'csv'];
 
 (argv.port) ? port = argv.port : port = 6667;
 (argv.server) ? server = argv.server.toLowerCase() : server = 'irc.freenode.net';
@@ -59,6 +59,7 @@ client.addListener('message', function (from, to, text) {
   var path = "logs/" + isoTimeStamp.slice(0,10) + "." + format
 
   var obj = { nick: from, message: text, time: epochTimeStamp };
+  var update = '[' + isoTimeStamp.slice(11,19) + '] ' + path + ' has been updated';
 
   if (format === 'json') {
     log.events.push(obj);
@@ -68,7 +69,7 @@ client.addListener('message', function (from, to, text) {
       if(err) {
         return console.log(err);
       }
-      console.log('[' + isoTimeStamp.slice(11,19) + '] ' + path + " has been updated");
+      console.log(update);
     });
 
 
@@ -79,8 +80,30 @@ client.addListener('message', function (from, to, text) {
       if(err) {
         return console.log(err);
       }
-      console.log('[' + isoTimeStamp.slice(11,19) + '] ' + path + " has been updated");
+      console.log(update);
     });
 
-  }
+  } else if (format === 'csv') {
+    var header = ['nick', 'message', 'time'];
+    var contents = [JSON.stringify(from), JSON.stringify(text), epochTimeStamp];
+
+    fs.stat(path, function(err, stat) {
+
+      if(err == null) {
+        fs.appendFile(path, contents.join() + '\n', function(err) {
+          if(err) {
+            return console.log(err);
+          }
+          console.log(update);
+        });
+      } else if(err.code == 'ENOENT') {
+        fs.writeFile(path, header.join() + '\n' + contents.join() + '\n');
+        console.log(update);
+      } else {
+        return console.log(err);
+      }
+
+    });
+  };
+
 });
