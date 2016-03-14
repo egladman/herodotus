@@ -1,5 +1,5 @@
 # herodotus
-An IRC bot written in node.JS that logs a channel's activity and saves it to [JSON](http://json.org/) or [JSON Lines](http://jsonlines.org/)
+An IRC bot written in node.JS that logs a channel's activity and saves it to [JSON](http://json.org/), [JSON Lines](http://jsonlines.org/), or [CSV](https://en.wikipedia.org/wiki/Comma-separated_values)
 
 ### Getting started
 
@@ -37,7 +37,7 @@ node server.js --nick='qux' --channel='#foo' --server='bar' --port=1234
 ###### Example Three
 
 ```bash
-node server.js
+node server.js --format='csv'
 ```
 
 ---
@@ -103,6 +103,19 @@ example `logs/YYYY-MM-DD.jsonl`
 
 ---
 
+
+example `logs/YYYY-MM-DD.csv`
+
+```csv
+nick,message,time
+foo, Vivamus elementum semper nisi, 1456070643
+bar, Aenean vulputate eleifend tellus, 1456070648
+baz, qux%3A Maecenas tempus, sit amet adipiscing sem neque sed ipsum, 1456070651
+qux, foo%3A Etiam sit amet orci eget eros faucibus tincidunt, 1456070653
+
+```
+
+---
 Tested on node `v4.2.6`
 
 Contributions and/or feature requests are welcomed. Feel free to report issues.
