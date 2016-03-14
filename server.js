@@ -85,7 +85,7 @@ client.addListener('message', function (from, to, text) {
 
   } else if (format === 'csv') {
     var header = ['nick', 'message', 'time'];
-    var contents = [from, text, epochTimeStamp];
+    var contents = [from, encodeURIComponent(text), epochTimeStamp];
 
     fs.stat(path, function(err, stat) {
 
