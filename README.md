@@ -108,10 +108,10 @@ example `logs/YYYY-MM-DD.csv`
 
 ```csv
 nick, message, time
-foo, Vivamus elementum semper nisi, 1456070643
-bar, Aenean vulputate eleifend tellus, 1456070648
-baz, qux%3A Maecenas tempus, sit amet adipiscing sem neque sed ipsum, 1456070651
-qux, foo%3A Etiam sit amet orci eget eros faucibus tincidunt, 1456070653
+"foo", "Vivamus elementum semper nisi", 1456070643
+"bar", "Aenean vulputate eleifend tellus", 1456070648
+"baz", "qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum", 1456070651
+"qux", "foo: Etiam sit amet orci eget eros faucibus tincidunt", 1456070653
 
 ```
 
