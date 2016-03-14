@@ -95,10 +95,10 @@ example `logs/YYYY-MM-DD.json`
 example `logs/YYYY-MM-DD.jsonl`
 
 ```json
-{"nick": "foo", "message": "Vivamus elementum semper nisi", "time": 1456070643}
-{"nick": "bar", "message": "Aenean vulputate eleifend tellus", "time": 1456070648}
-{"nick": "baz", "message": "qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum", "time": 1456070651}
-{"nick": "qux", "message": "foo: Etiam sit amet orci eget eros faucibus tincidunt", "time": 1456070653}
+{ "nick": "foo", "message": "Vivamus elementum semper nisi", "time": 1456070643 }
+{ "nick": "bar", "message": "Aenean vulputate eleifend tellus", "time": 1456070648 }
+{ "nick": "baz", "message": "qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum", "time": 1456070651 }
+{ "nick": "qux", "message": "foo: Etiam sit amet orci eget eros faucibus tincidunt", "time": 1456070653 }
 ```
 
 ---
@@ -107,7 +107,7 @@ example `logs/YYYY-MM-DD.jsonl`
 example `logs/YYYY-MM-DD.csv`
 
 ```csv
-nick,message,time
+nick, message, time
 foo, Vivamus elementum semper nisi, 1456070643
 bar, Aenean vulputate eleifend tellus, 1456070648
 baz, qux%3A Maecenas tempus, sit amet adipiscing sem neque sed ipsum, 1456070651
