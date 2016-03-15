@@ -57,6 +57,7 @@ format: `json`
 
 ---
 
+### JSON
 
 example `logs/YYYY-MM-DD.json`
 
@@ -89,6 +90,8 @@ example `logs/YYYY-MM-DD.json`
 }
 ```
 
+### JSON Lines
+
 ---
 
 
@@ -103,6 +106,7 @@ example `logs/YYYY-MM-DD.jsonl`
 
 ---
 
+### CSV
 
 example `logs/YYYY-MM-DD.csv`
 
@@ -118,13 +122,14 @@ nick, message, time
 
 ---
 
+### Markdown
 
 example `logs/YYYY-MM-DD.md`
 
-[02:41:33] **foo** Vivamus elementum semper nisi
-[02:41:40] **bar** Aenean vulputate eleifend tellus
-[02:41:42] **baz** qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum
-[02:41:45] **qux** foo: Etiam sit amet orci eget eros faucibus tincidunt
+[02:41:33]  **foo** Vivamus elementum semper nisi<br />
+[02:41:40]  **bar** Aenean vulputate eleifend tellus<br />
+[02:41:42]  **baz** qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum<br />
+[02:41:45]  **qux** foo: Etiam sit amet orci eget eros faucibus tincidunt<br />
 
 
 ---

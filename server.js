@@ -105,7 +105,7 @@ client.addListener('message', function (from, to, text) {
     });
 
   } else if (format === 'md') {
-    var contents = '[' + isoTimeStamp.slice(11,19) + '] ' + '**' + from + '** ' + text + '\n'
+    var contents = '[' + isoTimeStamp.slice(11,19) + ']  ' + '**' + from + '** ' + text + '<br />'
     fs.appendFile(path, contents, function(err) {
       if(err) {
         return console.log(err);
