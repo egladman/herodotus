@@ -1,5 +1,5 @@
 # herodotus
-An IRC bot written in node.JS that logs a channel's activity and saves it to [JSON](http://json.org/), [JSON Lines](http://jsonlines.org/), or [CSV](https://en.wikipedia.org/wiki/Comma-separated_values)
+An IRC bot written in node.JS that logs a channel's activity and saves it to [JSON](http://json.org/), [JSON Lines](http://jsonlines.org/), [CSV](https://en.wikipedia.org/wiki/Comma-separated_values), or [Markdown](https://daringfireball.net/projects/markdown/)
 
 ### Getting started
 
@@ -29,7 +29,7 @@ node server.js --channel='#herodotus-demo' --format='jsonl'
 ###### Example Two
 
 ```bash
-node server.js --nick='qux' --channel='#foo' --server='bar' --port=1234
+node server.js --nick='qux' --channel='#foo' --server='bar' --port=1234 --format='md'
 ```
 
 --
@@ -57,6 +57,7 @@ format: `json`
 
 ---
 
+### JSON
 
 example `logs/YYYY-MM-DD.json`
 
@@ -89,6 +90,8 @@ example `logs/YYYY-MM-DD.json`
 }
 ```
 
+### JSON Lines
+
 ---
 
 
@@ -103,6 +106,7 @@ example `logs/YYYY-MM-DD.jsonl`
 
 ---
 
+### CSV
 
 example `logs/YYYY-MM-DD.csv`
 
@@ -114,6 +118,19 @@ nick, message, time
 "qux", "foo: Etiam sit amet orci eget eros faucibus tincidunt", 1456070653
 
 ```
+
+
+---
+
+### Markdown
+
+example `logs/YYYY-MM-DD.md`
+
+[02:41:33]  **foo** Vivamus elementum semper nisi<br />
+[02:41:40]  **bar** Aenean vulputate eleifend tellus<br />
+[02:41:42]  **baz** qux: Maecenas tempus, sit amet adipiscing sem neque sed ipsum<br />
+[02:41:45]  **qux** foo: Etiam sit amet orci eget eros faucibus tincidunt<br />
+
 
 ---
 Tested on node `v4.2.6`

@@ -6,7 +6,7 @@ var argv = require('yargs').argv;
 
 var port, server, channel, nick, format;
 
-var formats = ['json', 'jsonl', 'csv'];
+var formats = ['json', 'jsonl', 'csv', 'md'];
 
 (argv.port) ? port = argv.port : port = 6667;
 (argv.server) ? server = argv.server.toLowerCase() : server = 'irc.freenode.net';
@@ -102,8 +102,17 @@ client.addListener('message', function (from, to, text) {
       } else {
         return console.log(err);
       }
-
     });
+
+  } else if (format === 'md') {
+    var contents = '[' + isoTimeStamp.slice(11,19) + ']  ' + '**' + from + '** ' + text + '<br />'
+    fs.appendFile(path, contents, function(err) {
+      if(err) {
+        return console.log(err);
+      }
+      console.log(update);
+    });
+
   };
 
 });
