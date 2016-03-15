@@ -16,7 +16,7 @@ npm install
 
 ##### Start
 
-There are **5 optional** parameters
+There are **6 optional** parameters
 
 ###### Example One
 
@@ -37,7 +37,7 @@ node server.js --nick='qux' --channel='#foo' --server='bar' --port=1234 --format
 ###### Example Three
 
 ```bash
-node server.js --format='csv'
+node server.js --format='csv' --verbose
 ```
 
 ---
@@ -53,6 +53,8 @@ channel: `#herodotus-demo`
 nick: `herodotus-bot`
 
 format: `json`
+
+verbose: `true`
 
 
 ---

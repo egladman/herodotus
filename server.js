@@ -12,6 +12,7 @@ var formats = ['json', 'jsonl', 'csv', 'md'];
 (argv.server) ? server = argv.server.toLowerCase() : server = 'irc.freenode.net';
 (argv.channel) ? channel = argv.channel.toLowerCase() : channel = '#herodotus-demo';
 (argv.nick) ? nick = argv.nick.toLowerCase() : nick = 'herodotus-bot';
+(argv.verbose) ? verbose = true : verbose = false;
 
 if (argv.format) {
   if (formats.indexOf(argv.format) === -1) {
@@ -69,7 +70,7 @@ client.addListener('message', function (from, to, text) {
       if(err) {
         return console.log(err);
       }
-      console.log(update);
+      if (verbose) console.log(update);
     });
 
 
@@ -80,7 +81,7 @@ client.addListener('message', function (from, to, text) {
       if(err) {
         return console.log(err);
       }
-      console.log(update);
+      if (verbose) console.log(update);
     });
 
   } else if (format === 'csv') {
@@ -94,7 +95,7 @@ client.addListener('message', function (from, to, text) {
           if(err) {
             return console.log(err);
           }
-          console.log(update);
+          if (verbose) console.log(update);
         });
       } else if(err.code == 'ENOENT') {
         fs.writeFile(path, header.join() + '\n' + contents.join() + '\n');
@@ -110,7 +111,7 @@ client.addListener('message', function (from, to, text) {
       if(err) {
         return console.log(err);
       }
-      console.log(update);
+      if (verbose) console.log(update);
     });
 
   };
