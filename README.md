@@ -54,7 +54,7 @@ nick: `herodotus-bot`
 
 format: `json`
 
-verbose: `true`
+verbose: `false`
 
 
 ---
