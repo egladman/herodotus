@@ -3,6 +3,8 @@ var irc = require('irc');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var argv = require('yargs').argv;
+const chalk = require('chalk');
+
 
 var port, server, channel, nick, format;
 
@@ -16,7 +18,7 @@ var formats = ['json', 'jsonl', 'csv', 'md'];
 
 if (argv.format) {
   if (formats.indexOf(argv.format) === -1) {
-    return console.error('invalid format');
+    return console.log( chalk.red('ERROR') +  ' invalid format' );
   }
   format = argv.format.toLowerCase();
 } else {
@@ -33,16 +35,16 @@ var client = new irc.Client(server, nick, {
 });
 
 client.connect(5, function(input) {
-  console.log("Established connection with " + server);
+  console.log( chalk.green('Established connection with ' + server) );
 
   client.join(channel, function(input) {
-    console.log("Joined " + channel);
+    console.log( chalk.green('Joined ' + channel) );
   });
 });
 
 mkdirp('logs', function (err) {
   if(err) {
-    return console.log(err);
+    return console.log( chalk.red(err) );
   }
 });
 
@@ -52,7 +54,7 @@ log.channel = channel;
 log.events = [];
 
 client.addListener('message', function (from, to, text) {
-  var date = new Date();
+  const date = new Date();
 
   var epochTimeStamp = Math.floor(date / 1000);
   var isoTimeStamp = date.toISOString();
@@ -60,7 +62,7 @@ client.addListener('message', function (from, to, text) {
   var path = "logs/" + isoTimeStamp.slice(0,10) + "." + format
 
   var obj = { nick: from, message: text, time: epochTimeStamp };
-  var update = '[' + isoTimeStamp.slice(11,19) + '] ' + path + ' has been updated';
+  var update =  chalk.yellow('[' + isoTimeStamp.slice(11,19) + ']') + ' ' + path + ' has been updated';
 
   if (format === 'json') {
     log.events.push(obj);
@@ -68,7 +70,7 @@ client.addListener('message', function (from, to, text) {
 
     fs.writeFile(path, contents, function(err) {
       if(err) {
-        return console.log(err);
+        return console.log( chalk.red(err) );
       }
       if (verbose) console.log(update);
     });
@@ -79,7 +81,7 @@ client.addListener('message', function (from, to, text) {
 
     fs.appendFile(path, contents, function(err) {
       if(err) {
-        return console.log(err);
+        return console.log( chalk.red(err) );
       }
       if (verbose) console.log(update);
     });
@@ -93,7 +95,7 @@ client.addListener('message', function (from, to, text) {
       if(err == null) {
         fs.appendFile(path, contents.join() + '\n', function(err) {
           if(err) {
-            return console.log(err);
+            return console.log( chalk.red(err) );
           }
           if (verbose) console.log(update);
         });
@@ -101,7 +103,7 @@ client.addListener('message', function (from, to, text) {
         fs.writeFile(path, header.join() + '\n' + contents.join() + '\n');
         console.log(update);
       } else {
-        return console.log(err);
+        return console.log( chalk.red(err) );
       }
     });
 
@@ -109,7 +111,7 @@ client.addListener('message', function (from, to, text) {
     var contents = '[' + isoTimeStamp.slice(11,19) + ']  ' + '**' + from + '** ' + text + '<br />'
     fs.appendFile(path, contents, function(err) {
       if(err) {
-        return console.log(err);
+        return console.log( chalk.red(err) );
       }
       if (verbose) console.log(update);
     });
