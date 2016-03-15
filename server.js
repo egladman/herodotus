@@ -8,7 +8,7 @@ const chalk = require('chalk');
 
 var port, server, channel, nick, format;
 
-var formats = ['json', 'jsonl', 'csv', 'md'];
+var formats = ['json', 'jsonl', 'csv', 'md', 'markdown'];
 
 (argv.port) ? port = argv.port : port = 6667;
 (argv.server) ? server = argv.server.toLowerCase() : server = 'irc.freenode.net';
@@ -20,7 +20,10 @@ if (argv.format) {
   if (formats.indexOf(argv.format) === -1) {
     return console.log( chalk.red('ERROR') +  ' invalid format' );
   }
+
   format = argv.format.toLowerCase();
+  if (format === 'markdown') format = 'md';
+
 } else {
   format = 'json';
 }
@@ -74,7 +77,6 @@ client.addListener('message', function (from, to, text) {
       }
       if (verbose) console.log(update);
     });
-
 
   } else if (format === 'jsonl') {
     var contents = JSON.stringify(obj) + '\n'
