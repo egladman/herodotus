@@ -6,9 +6,9 @@ var argv = require('yargs').argv;
 const chalk = require('chalk');
 
 
-var port, server, channel, nick, format;
+var port, server, channel, nick, format, formats;
 
-var formats = ['json', 'jsonl', 'csv', 'md', 'markdown'];
+formats = ['json', 'jsonl', 'csv', 'md', 'markdown'];
 
 (argv.port) ? port = argv.port : port = 6667;
 (argv.server) ? server = argv.server.toLowerCase() : server = 'irc.freenode.net';
